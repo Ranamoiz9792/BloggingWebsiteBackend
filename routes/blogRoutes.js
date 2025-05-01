@@ -6,10 +6,10 @@ import {
   updateBlog,
   deleteBlog,
 } from '../controllers/blogController.js';
-
+import { protect } from '../middleware/authMiddleware.js';
 const router = express.Router();
 
-router.post('/create', createBlog);          // Create a blog
+router.post('/create',protect, createBlog);          // Create a blog
 router.get('/list', getAllBlogs);            // Get all blogs
 router.get('/details/:id', getBlogById);     // ✅ Read one blog by ID
 router.put('/update/:id', updateBlog);       // ✅ Update a blog by ID

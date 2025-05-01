@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors'; // 🆕 Import CORS
 import blogRoutes from './routes/blogRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 dotenv.config();
 
 import connectDB from './config/db.js';
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
   res.status(200).json({ status: 'ok', message: '🩺 Server is healthy!' });
 });
 app.use('/api/blogs', blogRoutes);
+app.use('/api/auth', authRoutes);
 // 🔌 Connect to DB
 connectDB();
 
