@@ -37,7 +37,7 @@ export const loginUser = async (email, password) => {
 
 export const generateToken = (id) => {
   return jwt.sign({ id }, JWT_SECRET, {
-    expiresIn: '30d',
+    expiresIn: '1d',
   });
 };
 
